@@ -1,5 +1,5 @@
-function generate() {
-  console.log('generate');
+function generate(blueprint, options) {
+  console.log(blueprint);
 }
 
 
