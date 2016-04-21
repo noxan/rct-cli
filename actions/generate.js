@@ -8,7 +8,11 @@ function generate(blueprint, options) {
     if (err) {
       return console.log('Blueprint not found or blueprints folder is missing.');
     }
-    console.log('ok', path);
+
+    var files = fs.readdirSync(path);
+    files.forEach(function(filename) {
+      console.log(filename);
+    });
   });
 }
 
