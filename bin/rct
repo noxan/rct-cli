@@ -2,8 +2,15 @@
 
 var program = require('commander')
 var version = require('../package.json').version;
+var generateAction = require('../actions/generate');
 
 
 program.version(version);
+
+program
+  .command('generate [blueprint]')
+  .alias('g')
+  .description('generate a blueprint')
+  .action(generateAction);
 
 program.parse(process.argv);
