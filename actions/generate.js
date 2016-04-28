@@ -19,6 +19,12 @@ function generate(blueprint, options) {
 
     var destinationPath = join(process.cwd(), blueprint + 's', options.name);
 
+    mkdirp(destinationPath, function (err) {
+      if (err) {
+        return console.error('[Error]', err);
+      }
+    });
+
     var files = fs.readdirSync(path);
     files.forEach(function(filename) {
       var fileDest = join(destinationPath, filename);
