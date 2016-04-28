@@ -17,11 +17,12 @@ function generate(blueprint, options) {
     }
 
     var destinationPath = join(process.cwd(), blueprint + 's', options.name);
-    console.log(destinationPath);
 
     var files = fs.readdirSync(path);
     files.forEach(function(filename) {
-      console.log(filename);
+      var fileDest = join(destinationPath, filename);
+
+      console.log(fileDest);
     });
   });
 }
