@@ -17,7 +17,7 @@ function generate(blueprint, options) {
       return console.error('[Error] Please specify a name for the blueprint after its generation.');
     }
 
-    var destinationPath = join(process.cwd(), blueprint + 's', options.name);
+    var destinationPath = join(process.cwd(), 'src', blueprint + 's', options.name);
 
     mkdirp(destinationPath, function (err) {
       if (err) {
