@@ -27,9 +27,13 @@ function generate(blueprint, options) {
 
     var files = fs.readdirSync(path);
     files.forEach(function(filename) {
+      var sourceFilePath = join(path, filename);
       var fileDest = join(destinationPath, filename);
 
-      console.log(fileDest);
+      var sourceStream = fs.createReadStream(sourceFilePath);
+      var targetStream = fs.createWriteStream(fileDest);
+
+      sourceStream.pipe(targetStream);
     });
   });
 }
