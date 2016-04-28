@@ -12,6 +12,10 @@ function generate(blueprint, options) {
       return console.error('Blueprint not found or blueprints folder is missing.');
     }
 
+    if (!options.hasOwnProperty('name')) {
+      return console.error('[Error] Please specify a name for the blueprint after its generation.');
+    }
+
     var files = fs.readdirSync(path);
     files.forEach(function(filename) {
       console.log(filename);

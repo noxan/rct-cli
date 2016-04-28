@@ -11,6 +11,7 @@ program
   .command('generate [blueprint]')
   .alias('g')
   .description('generate a blueprint')
+  .option('-n, --name [name]', 'Name of generated blueprint.')
   .action(generateAction);
 
 program.parse(process.argv);
