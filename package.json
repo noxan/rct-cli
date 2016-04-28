@@ -3,6 +3,9 @@
   "version": "0.2.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "rct": "./bin/rct"
+  },
   "dependencies": {
     "commander": "^2.9.0",
     "mkdirp": "^0.5.1",
