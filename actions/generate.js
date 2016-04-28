@@ -9,7 +9,7 @@ function generate(blueprint, options) {
   var path = join(process.cwd(), 'blueprints', blueprint);
   fs.access(path, fs.F_OK, function(err) {
     if (err) {
-      return console.log('Blueprint not found or blueprints folder is missing.');
+      return console.error('Blueprint not found or blueprints folder is missing.');
     }
 
     var files = fs.readdirSync(path);
