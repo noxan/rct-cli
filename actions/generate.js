@@ -3,6 +3,9 @@ var join = require('path').join;
 
 
 function generate(blueprint, options) {
+  if (blueprint === undefined) {
+    return console.error('[Error] Please specify the blueprint you want to generate.');
+  }
   var path = join(process.cwd(), 'blueprints', blueprint);
   fs.access(path, fs.F_OK, function(err) {
     if (err) {
