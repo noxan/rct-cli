@@ -31,10 +31,20 @@ function generate(blueprint, options) {
       var sourceFilePath = join(path, filename);
       var fileDest = join(destinationPath, filename);
 
-      var sourceStream = fs.createReadStream(sourceFilePath);
+      var sourceStream = fs.createReadStream(sourceFilePath, {
+        encoding: 'utf8',
+      });
       var targetStream = fs.createWriteStream(fileDest);
 
-      sourceStream.pipe(targetStream);
+      sourceStream
+        .pipe(through2({
+          decodeStrings: false,
+          encoding: 'utf8',
+        }, function (chunk, enc) {
+          chunk = chunk.replace(/{{name}}/g, options.name);
+          this.push(chunk);
+        }))
+        .pipe(targetStream);
     });
   });
 }
