@@ -1,5 +1,6 @@
 var fs = require('fs');
 var join = require('path').join;
+var mkdirp = require('mkdirp');
 
 
 function generate(blueprint, options) {
