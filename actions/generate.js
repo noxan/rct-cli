@@ -18,7 +18,20 @@ function generate(blueprint, options) {
       return console.error('[Error] Please specify a name for the blueprint after its generation.');
     }
 
-    var destinationPath = join(process.cwd(), 'src', blueprint + 's', options.name);
+    var parts = options.name.split('/');
+
+    var module = '';
+    var name = '';
+    if (parts.length === 1) {
+      name = parts[0];
+    } else if (parts.length === 2)  {
+      module = parts[0];
+      name = parts[1];
+    } else {
+      return console.error('[Error] Please specify the name for the blueprint in the following syntax: module/name.');
+    }
+
+    var destinationPath = join(process.cwd(), 'src', module, blueprint + 's', name);
 
     mkdirp(destinationPath, function (err) {
       if (err) {
