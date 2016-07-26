@@ -33,11 +33,7 @@ function generate(blueprint, options) {
 
     var destinationPath = join(process.cwd(), 'src', module, blueprint + 's', name);
 
-    mkdirp(destinationPath, function (err) {
-      if (err) {
-        return console.error('[Error]', err);
-      }
-    });
+    mkdirp.sync(destinationPath);
 
     var files = fs.readdirSync(path);
     files.forEach(function(filename) {
