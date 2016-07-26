@@ -13,3 +13,9 @@ The current implementation is tailored for a specific project. It should grow mo
 ## Usage
 
     rct generate <blueprint> <options>
+
+### Generate (with module)
+
+    rct generate <blueprint> --name <module>/<name>
+    
+`<module>` part is optional, while `<name>` is required.
