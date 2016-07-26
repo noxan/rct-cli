@@ -50,7 +50,8 @@ function generate(blueprint, options) {
           decodeStrings: false,
           encoding: 'utf8',
         }, function (chunk, enc) {
-          chunk = chunk.replace(/{{name}}/g, options.name);
+          chunk = chunk.replace(/{{name}}/g, name);
+          chunk = chunk.replace(/{{module}}/g, module);
           this.push(chunk);
         }))
         .pipe(targetStream);
